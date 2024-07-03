@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
         required: [true, "First Name is required"],
         minlength: [5, "First name must be atleast 5 character long"],
         lowercase: true,
-        trime: true, // it will remove the extra spaces given by user
+        trim: true, // it will remove the extra spaces given by user
         maxlength: [20, "First name should be less than or equal to 20 characters"]
     },
 
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
         required: [true, "Last Name is required"],
         minlength: [5, "Last name must be atleast 5 character long"],
         lowercase: true,
-        trime: true, // it will remove the extra spaces given by user
+        trim: true, // it will remove the extra spaces given by user
         maxlength: [20, "Last name should be less than or equal to 20 characters"]
     },
 
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
         maxlength:[10, "Phone number should be of length 10"],
         minlength:[10, "Phone number should be of length 10"],
         unique:[true, "Phone number is already in use"],
-        trime: true, // it will remove the extra spaces given by user
+        trim: true, // it will remove the extra spaces given by user
         required: [true, "Phone number should be provided"]
     },
 
