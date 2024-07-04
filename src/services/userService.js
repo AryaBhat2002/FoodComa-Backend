@@ -27,7 +27,7 @@ const {findUser,createUser}= require("../repositories/userRepository");
             throw { reason: "Something went wrong.. Cannot create user", statusCode: 500}
         }
 
-        //3. Return the details of created user
+        // 3. If user is created a new cart should also be created in his name
 
         return newUser;
     }

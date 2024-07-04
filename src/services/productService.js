@@ -10,9 +10,9 @@ async function createProduct(productDetails){
     const imagePath = productDetails.imagePath;
     if(imagePath){
         try {
-            const cloudinaryReponse = await cloudinary.uploader.upload(imagePath);
-            var productImage = cloudinaryReponse.secure_url;
-            await fs.unlink(imagePath);
+            const cloudinaryResponse = await cloudinary.uploader.upload(imagePath);
+            var productImage = cloudinaryResponse.secure_url;
+            await fs.unlink(process.cwd() + "/" + imagePath);
         } catch (error) {
             console.log(error);
             throw new InternalServerError();   

@@ -4,7 +4,6 @@ async function createUser(req,res){
     console.log(req.body);
 
     try{
-       
         const response = await registerUser(req.body);
         return res.json({
             message: 'Successfully registered the user',
@@ -20,9 +19,9 @@ async function createUser(req,res){
             error: error
         })
     }
-    
-
 }
+
+
 
 module.exports = {
     createUser
