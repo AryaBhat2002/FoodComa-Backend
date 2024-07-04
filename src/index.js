@@ -9,7 +9,8 @@ const cookieParser = require('cookie-parser');
 const { isLoggedIn } = require('./validation/authValidator');
 const uploader = require('./middlewares/multerMiddleware');
 const cloudinary = require('./config/cloudinaryConfig');
-const fs = require('fs/promises')
+const fs = require('fs/promises');
+const productRouter = require('./routes/productRoute');
 
 // Const bodyParser = require('body-parser');
 
@@ -25,6 +26,7 @@ app.use(express.urlencoded({extended: true}));
 app.use('/users' , userRouter); //Connects the router to the server
 app.use('/carts', cartRouter);
 app.use('/auth', authRouter);
+app.use('/products', productRouter);
 
 app.get('/ping', isLoggedIn, (req,res) => {
     console.log(req.body);
@@ -34,13 +36,14 @@ app.get('/ping', isLoggedIn, (req,res) => {
     });
 })
 
-app.post('/photo', uploader.single('incomingFile'), async (req,res) => {
+/*app.post('/photo', uploader.single('incomingFile'), async (req,res) => {
     console.log(req.file);
     const result = await cloudinary.uploader.upload(req.file.path);
     console.log("Rsult from couldinary",result);
     await fs.unlink(req.file.path);
     return res.json({message: 'ok'})
 })
+*/
 
 
 app.listen(serverConfig.PORT, async() => { 

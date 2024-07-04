@@ -10,7 +10,6 @@ const productSchema = new mongoose.Schema({
 
     description: {
         type: String,
-        required: [true, "Product description is mandatory"],
         minlength: [10, "Product description must be atleast 10 character long"],
     },
 
