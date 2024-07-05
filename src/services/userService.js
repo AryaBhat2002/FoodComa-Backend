@@ -1,4 +1,5 @@
 const {findUser,createUser}= require("../repositories/userRepository");
+const {createCart} = require('../repositories/cartRepository');
 
     async function registerUser(userDetails){
         console.log("Hitting service layer");
@@ -26,6 +27,8 @@ const {findUser,createUser}= require("../repositories/userRepository");
         if(!newUser){
             throw { reason: "Something went wrong.. Cannot create user", statusCode: 500}
         }
+
+        await createCart(newUser._id);
 
         // 3. If user is created a new cart should also be created in his name
 
