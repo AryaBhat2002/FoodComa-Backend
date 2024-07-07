@@ -19,6 +19,12 @@ const productSchema = new mongoose.Schema({
         min: 0.01
     },
 
+    quantity:{
+        type: Number,
+        required: true,
+        default: 10
+    },
+
     category: {
         type: String,
         enum: ['veg','non-veg','drinks','sides'],
