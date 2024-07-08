@@ -34,18 +34,9 @@ app.get('/ping', isLoggedIn, (req,res) => {
     console.log(req.body);
     console.log(req.cookies);
     return res.json({
-        message: "pong"
+        message: "ping"
     });
 })
-
-/*app.post('/photo', uploader.single('incomingFile'), async (req,res) => {
-    console.log(req.file);
-    const result = await cloudinary.uploader.upload(req.file.path);
-    console.log("Rsult from couldinary",result);
-    await fs.unlink(req.file.path);
-    return res.json({message: 'ok'})
-})
-*/
 
 
 app.listen(serverConfig.PORT, async() => { 
