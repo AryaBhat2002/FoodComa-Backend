@@ -7,7 +7,7 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
 
-    item: [
+    items: [
         {
             product: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -27,6 +27,7 @@ const orderSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    
     status: {
         type: String,
         enum: ["ORDERED","CANCELLED","DELIVERED","PROCESSING","OUT_FOR_DELIVERY"],
