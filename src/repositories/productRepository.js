@@ -11,7 +11,7 @@ async function createProduct(productDetails){
     } catch(error){
         if(error.name === 'ValidationError'){
             const errorMessageList = Object.keys(error.errors).map((property) => {
-               return error.errors[property].message;
+                return error.errors[property].message;
             })
             throw new BadRequestError(errorMessageList);
         }
@@ -39,8 +39,19 @@ async function deleteProductByID(productID){
         throw new InternalServerError();    }
 }
 
+async function getAllProducts(){
+    try{
+        const products = await Product.find({});
+        return products;
+    } catch(error){
+        console.log(error);
+        throw new InternalServerError();
+    }
+}
+
 module.exports = {
     createProduct,
     getProductByID,
-    deleteProductByID
+    deleteProductByID,
+    getAllProducts
 }
