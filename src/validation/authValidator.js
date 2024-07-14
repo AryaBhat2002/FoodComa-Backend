@@ -38,7 +38,8 @@ async function isLoggedIn(req, res, next) {
                 httpOnly: true,
                 secure: COOKIE_SECURE,
                 sameSite: "none",
-                maxAge: 7 * 24 * 60 * 60 * 1000
+                maxAge: 7 * 24 * 60 * 60 * 1000,
+                domain: FRONTEND_URL
             });
             return res.status(200).json({
                 success: true,
