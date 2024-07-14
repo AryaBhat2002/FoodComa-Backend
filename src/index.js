@@ -17,6 +17,11 @@ app.use(cors({
     credentials: true,
 }));
 
+app.options('*', cors({
+    origin: serverConfig.FRONTEND_URL,
+    credentials: true,
+}));
+
 app.use(cookieParser())
 app.use(express.json());
 app.use(express.text());
