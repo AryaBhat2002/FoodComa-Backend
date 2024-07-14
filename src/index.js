@@ -14,13 +14,10 @@ const app = express();
 
 app.use(cors({
     origin: serverConfig.FRONTEND_URL,
+    methods: ["GET","POST","DELETE","PUT"],
+    allowedHeaders: ["Content-Type"],
     credentials: true,
-}));
-
-app.options('*', cors({
-    origin: serverConfig.FRONTEND_URL,
-    credentials: true,
-}));
+}))
 
 app.use(cookieParser())
 app.use(express.json());
