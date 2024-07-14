@@ -13,7 +13,7 @@ const orderRouter = require('./routes/orderRoutes');
 const app = express();
 
 app.use(cors({
-    origin: 'https://main--foodfrontend.netlify.app',
+    origin: serverConfig.FRONTEND_URL,
     credentials: true,
 }));
 
