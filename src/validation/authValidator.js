@@ -5,7 +5,7 @@ const UnAuthorisedError = require('../utils/unauthorisedError');
 async function isLoggedIn(req, res, next) {
     console.log("Inside isLoggedIn", req.cookies);
     const token = req.cookies["authToken"];
-    console.log(token);
+    console.log('Auth Token:', token);
     if(!token) {
         return res.status(401).json({
             success: false,
@@ -38,7 +38,7 @@ async function isLoggedIn(req, res, next) {
             httpOnly: true,
             secure: COOKIE_SECURE,
             sameSite: "lax",
-            maxAge: 7 * 24 * 60 * 60 * 1000,
+            maxAge: 0,
             domain: new URL(FRONTEND_URL).hostname // Ensure domain is set correctly
             });
             return res.status(200).json({

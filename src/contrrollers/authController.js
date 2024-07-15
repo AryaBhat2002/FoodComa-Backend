@@ -15,6 +15,7 @@ async function login(req,res) {
             maxAge: 7 * 24 * 60 * 60 * 1000,
             domain: new URL(FRONTEND_URL).hostname // Ensure domain is set correctly
         })
+        console.log('Set-Cookie header:', res.getHeader('Set-Cookie'));
 
         return res.status(200).json({
             success: true,
